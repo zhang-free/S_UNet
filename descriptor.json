@@ -1,0 +1,82 @@
+{
+    "name": "UNet",
+    "container-image": {
+        "image": "zhangpenghui/s_unet",
+        "type": "singularity"
+    },
+    "schema-version": "cytomine-0.1",
+    "description": "A workflow using the UNet deep learning achitecture for pixel classification",
+    "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE IMAGE_HEIGHT IMAGE_WIDTH",
+    "inputs": [
+        {
+            "id": "cytomine_host",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine host",
+            "description": "Cytomine server hostname",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_public_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine public key",
+            "description": "Cytomine public key",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_private_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine private key",
+            "description": "Cytomine private key",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_id_project",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine project id",
+            "description": "Cytomine project id",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_id_software",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine software id",
+            "description": "Cytomine software id",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "model_job_id",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Model job id",
+            "description": "Id of the job which has built the model (the job must have the model weights as attached file 'weights.hf5' and the following properties: image_width, image_height, train_mean, train_std)",
+            "type": "Number",
+            "optional": false,
+            "set-by-server": false
+        },
+        {
+            "id": "probability_threshold",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Probability threshold",
+            "description": "Value for thresholding probabilities into classes",
+            "type": "Number",
+            "optional": false,
+            "set-by-server": false
+        }
+    ]
+}
